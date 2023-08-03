@@ -7,7 +7,6 @@
 #' @importFrom shiny NS
 recaptchaUI <- function(id, sitekey = Sys.getenv("recaptcha_sitekey"), ...) {
   ns <- NS(id)
-  browser()
   tagList(tags$div(
     shiny::tags$script(
       src = "https://www.google.com/recaptcha/api.js",

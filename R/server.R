@@ -24,22 +24,3 @@ recaptcha <- function(id, secret) {
     return(status)
   })
 }
-# recaptcha <- function(input, output, session, secret = Sys.getenv("recaptcha_secret")) {
-#   status <- reactive({
-#     if (isTruthy(input$recaptcha_response)) {
-#       url <- "https://www.google.com/recaptcha/api/siteverify"
-#       
-#       resp <- POST(url, body = list(
-#         secret = secret,
-#         response = input$recaptcha_response
-#       ))
-#       
-#       fromJSON(content(resp, "text"))
-#     } else {
-#       list(success = FALSE)
-#     }
-#   })
-#   
-#   return(status)
-#   
-# }
