@@ -14,11 +14,8 @@ recaptchaUI <- function(id, sitekey = Sys.getenv("recaptcha_sitekey"), ...) {
       defer = NA
     ),
     tags$script(
-      paste0(gsub("-", "_", ns("shinyCaptcha"))," = function(response) {
+      paste0(gsub("-", "_", ns("shinyCaptcha")), " = function(response) {
           Shiny.onInputChange('", ns("recaptcha_response"), "', response);
-          console.log('acted');
-          console.log(response);
-          console.log('", ns("recaptcha_response"), "');
       }"
     )),
     tags$form(
