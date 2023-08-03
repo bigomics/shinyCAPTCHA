@@ -7,7 +7,7 @@
 #' @importFrom shiny NS
 recaptchaUI <- function(id, sitekey = Sys.getenv("recaptcha_sitekey"), ...) {
   ns <- NS(id)
-  
+  browser()
   tagList(tags$div(
     shiny::tags$script(
       src = "https://www.google.com/recaptcha/api.js",
@@ -15,15 +15,18 @@ recaptchaUI <- function(id, sitekey = Sys.getenv("recaptcha_sitekey"), ...) {
       defer = NA
     ),
     tags$script(
-      paste0("shinyCaptcha = function(response) {
-          Shiny.onInputChange('", ns("recaptcha_response"),"', response);
+      paste0(gsub("-", "_", ns("shinyCaptcha"))," = function(response) {
+          Shiny.onInputChange('", ns("recaptcha_response"), "', response);
+          console.log('acted');
+          console.log(response);
+          console.log('", ns("recaptcha_response"), "');
       }"
     )),
     tags$form(
       class = "shinyCAPTCHA-form",
       action = "?",
       method = "POST",
-      tags$div(class = "g-recaptcha", `data-sitekey` = sitekey, `data-callback` = I("shinyCaptcha"))
+      tags$div(class = "g-recaptcha", `data-sitekey` = sitekey, `data-callback` = I(gsub("-", "_", ns("shinyCaptcha"))))
     )
   ))
 }

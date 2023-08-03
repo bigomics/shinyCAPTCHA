@@ -4,16 +4,16 @@
 \alias{recaptcha}
 \title{Server-side module component}
 \usage{
-recaptcha(input, output, session, secret = Sys.getenv("recaptcha_secret"))
+recaptcha(id, secret)
 }
 \arguments{
+\item{secret}{Google secret for reCAPTCHA}
+
 \item{input}{input}
 
 \item{output}{output}
 
 \item{session}{session}
-
-\item{secret}{Google secret for reCAPTCHA}
 }
 \description{
 Server-side module component
