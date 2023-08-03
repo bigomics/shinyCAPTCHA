@@ -32,7 +32,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
   
-  result <- callModule(recaptcha, "test", secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe")
+  result <- recaptcha("test2", secret = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe")
   
   output$humansOnly <- renderUI({
     req(result()$success)
